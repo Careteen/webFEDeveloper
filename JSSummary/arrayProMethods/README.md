@@ -300,7 +300,7 @@ in操作符类似于将键值转换为布尔值。!!表达式通常被开发者�
 
 英文原文：Fun with JavaScript Native Array Functions
 
-译文地址：[http://yanhaijing.com/javascript/2014/01/17/fun-with-javascript-native-array-functions/](http://yanhaijing.com/javascript/2014/01/17/fun-with-javascript-native-array-functions/)
+译文地址：[https://github.com/careteenL/webFEDeveloper/tree/master/JSSummary/arrayProMethods](https://github.com/careteenL/webFEDeveloper/tree/master/JSSummary/arrayProMethods)
 	
 
 
