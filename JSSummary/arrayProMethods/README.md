@@ -1,5 +1,5 @@
 #JavaScript原生数组函数
-## 
+##
 在JavaScript中，可以通过两种方式创建数组，构造函数和数组直接量， 其中后者为首选方法。数组对象继承自Object.prototype，对数组执行typeof操作符返回‘object’而不是‘array’。然而执行[] instanceof Array返回true。此外，还有类数组对象是问题更复杂，如字符串对象，arguments对象。arguments对象不是Array的实例，但却有个length属性，并且值能通过索引获取，所以能像数组一样通过循环操作。
 
 我将复习一些数组原型的方法，并探索这些方法的用法。
@@ -100,8 +100,8 @@ some将会给数组里的每一个元素执行一遍回调函数，直到有一�
 		Queue.prototype.add = function() {
 			return this._queue.unshift.apply(this._queue, arguments)
 		}
-		queue = new Queue() 
-		queue.add(1, 2, 3) 
+		queue = new Queue()
+		queue.add(1, 2, 3)
 		queue.next() // <- 1
 
 用.shift或.pop能很容易遍历数组元素，并做一些操作。
@@ -210,12 +210,12 @@ previousValue是最后被调用的回调函数的返回值，initialValue是开�
 
 Array.prototype.slice能被用来将类数组对象转换为真正的数组。
 
-	Array.prototype.slice.call({ 0: 'a', 1: 'b', length: 2 }) 
+	Array.prototype.slice.call({ 0: 'a', 1: 'b', length: 2 })
 	// <- ['a', 'b']
 
 这对.concat不适用，因为它会用数组包裹类数组对象。
- 
-	Array.prototype.concat.call({ 0: 'a', 1: 'b', length: 2 }) 
+
+	Array.prototype.concat.call({ 0: 'a', 1: 'b', length: 2 })
 	// <- [{ 0: 'a', 1: 'b', length: 2 }]
 
 除此之外，另一个常见用途是从参数列表中移除最初的几个元素，并将类数组对象转换为真正的数组。
@@ -286,7 +286,7 @@ Array.prototype.slice能被用来将类数组对象转换为真正的数组。
 
 	var a = [3, 7, 6];
 	1 in a === !!a[1];
-	// <- true	
+	// <- true
 
 in操作符类似于将键值转换为布尔值。!!表达式通常被开发者用来双重取非一个值（转化为布尔值）。实际上相当于强制转换为布尔值，任何为真的值被转为true，任何为假的值被转换为false。
 ##走进.reverse
@@ -301,9 +301,3 @@ in操作符类似于将键值转换为布尔值。!!表达式通常被开发者�
 英文原文：Fun with JavaScript Native Array Functions
 
 译文地址：[https://github.com/careteenL/webFEDeveloper/tree/master/JSSummary/arrayProMethods](https://github.com/careteenL/webFEDeveloper/tree/master/JSSummary/arrayProMethods)
-	
-
-
-
-
-

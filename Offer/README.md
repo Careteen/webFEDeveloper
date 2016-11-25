@@ -1,5 +1,5 @@
-##JavaScript系统知识链
+##剑指offer面试算法题
 
 **文件夹------------->简介**
 
-- **arrayProMethods-------->js数组原生方法**
+- **arrayProMethods-------->用两个栈实现一个队列**
