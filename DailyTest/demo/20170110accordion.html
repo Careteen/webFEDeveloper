@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>accordion</title>
+    <style>
+    	
+    </style>
+</head>
+
+<body>
+    <div class="accordionMenu">
+        <div class="brand">
+            <h2><a href="#brand">brand</a></h2>
+            <p>啦啦啦啦</p>
+        </div>
+        <div class="promotion">
+            <h2>promotion</h2>
+            <p>哈哈哈哈</p>
+        </div>
+        <div class="event">
+            <h2>event</h2>
+            <p>呀呀呀呀</p>
+        </div>
+    </div>
+</body>
+<script>
+    function f(){
+        var a=1;
+        function f2(){
+            console.log(a);
+        }
+        return f2;
+    }
+    var result =f();
+    result();
+    var name = "The Window";
+　　var object = {
+　　　　name : "My Object",
+　　　　getNameFunc : function(){
+　　　　　　var that = this;
+　　　　　　return function(){
+　　　　　　　　return that.name;
+　　　　　　};
+　　　　}
+　　};
+　　alert(object.getNameFunc()());
+</script>
+</html>

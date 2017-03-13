@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>pictureLayout</title>
+</head>
+<style>
+#page {
+    border: 1px solid red;
+    width: 520px;
+}
+
+.nav {
+    width: 200px;
+    float: right;
+}
+
+.main {
+    width: 200px;
+    float: left;
+    padding-left: 110px;
+}
+
+.sub {
+    width: 100px;
+    float: left;
+    margin: 10px 10px 10px -100px;
+}
+
+.main {
+    border: 1px solid yellow;
+}
+
+.nav,
+.sub {
+    border: 1px dashed #000;
+    height: 300px;
+}
+
+.sub {
+    /*   height: 280px; */
+}
+
+.tex {
+    width: 200px;
+    border: 1px solid blue;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    /*必须结合的属性 ，将对象作为弹性伸缩盒子模型显示 */
+    -webkit-line-clamp: 2;
+    /*用来限制在一个块元素显示的文本的行数。*/
+    -webkit-box-orient: vertical;
+    /*必须结合的属性 ，设置或检索伸缩盒对象的子元素的排列方式 。*/
+}
+</style>
+
+<body>
+    <div id="page">
+        <div class="main">
+            <div class="sub">sub</div>
+        </div>
+        <div class="nav">nav</div>
+    </div>
+    <div class="tex">
+    	必须结合的属性 ，设置或检索伸缩盒对象的子元素的排列方式 。必须结合的属性 ，设置或检索伸缩盒对象的子元素的排列方式 。必须结合的属性 ，设置或检索伸缩盒对象的子元素的排列方式 。必须结合的属性 ，设置或检索伸缩盒对象的子元素的排列方式 。必须结合的属性 ，设置或检索伸缩盒对象的子元素的排列方式 。必须结合的属性 ，设置或检索伸缩盒对象的子元素的排列方式 。必须结合的属性 ，设置或检索伸缩盒对象的子元素的排列方式 。必须结合的属性 ，设置或检索伸缩盒对象的子元素的排列方式 。
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>div+css</title>
+    <style>
+    body{
+    	position: relative;
+    }
+    .outer {
+        width: 800px;
+        height: 1000px;
+        background-color: #eee;
+        position: relative;
+    }
+    
+    .img {
+        width: 300px;
+        height: 300px;
+        float: left;
+        position: relative;
+    }
+    
+    .float1 {
+        float: left;
+        background-color: red;
+    }
+    
+    .float2 {
+        background-color: blue;
+    }
+    
+    .float1,
+    .float2 {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .center {
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        margin: auto;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: pink;
+        /* 方便看效果 */
+    }
+    p{
+    	font-style: oblique;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <img class="img" src="./././images/show-vue-pagination.png" alt="简历">
+        <p>
+            fis/fis3是grunt、gulp之后兴起的一个比较优秀的前端工程解决方案。它的本质是基于静态资源标记+动态解析静态资源表，在模板、js里边使用特殊的标记方法引用前端资源，构建的时候生成一张资源依赖表，浏览器或者后端模板语言在解析的过程中通过查表得到某个静态资源在不同环境下的引用路径，所以不管是纯前端渲染（标记方法已经转换成浏览器能识别的了）还是后端（php、node、java）渲染，都很容易支持到，这样可以做到非常精细化的控制资源的按需加载。可以说fis真正做到了静态资源动态按需加载。 再来说说webpack，这货其实本质上是静态打包，生成chunk需要手动配置entry，虽然可以使用CommonsChunkPlugin、dll等插件辅助提取公共代码，以及采用code split切割进行懒加载，但这个粒度十分难把握，配置起来也比较困难（fis是自动生成依赖关系和自动处理懒加载）。 单从原理上来讲，fis比webpack要先进好多好多。但是fis先进的理念也成为它的一个缺陷，就是自定义的一套标记语言，大量自定义的资源标记语法并不能被浏览器直接接解析或者被社区流行的工具（browserify/babel）转换，比如fis依赖自家定制的mod.js来解析`require()`函数（即定位资源）以及资源base64内嵌语法`__include()`等。这一点直接导致了fis无法和后来的强大的npm社区对接，大量的npm前端模块在fis用不了，笔者认为这是导致各公司在选择前端统一的构建工具标准时不考虑fis的最大原因吧。
+        </p>
+    </div>
+    <div class="float1">
+        1
+    </div>
+    <div class="float2">
+        2
+        <div>3</div>
+        <div>4</div>
+    </div>
+    <div class="center">
+        123
+    </div>
+</body>
+
+</html>

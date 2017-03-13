@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>baidu</title>
+    <style>
+    .inner {
+        height: 100px;
+        width: 100px;
+        border: 1px solid red;
+        float: left;
+    }
+    
+    .outer {
+        border: 1px solid green;
+        overflow: hidden;
+        height: 80px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="inner">
+        </div>
+    </div>
+    <script>
+    function add(a, b) {
+        return a + b;
+    }
+    var a = add(add(123, 456), 789);
+    var aa = 'a' +
+        'b' +
+        'c';
+    var aaa = 1 === 1 ?
+        2 :
+        3;
+    console.log(aaa);
+    </script>
+</body>
+
+</html>
