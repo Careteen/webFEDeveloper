@@ -6,6 +6,8 @@
 
 - **Production----------->小作品**
 
+- **Util----------->JS工具库**
+
 - **Component----------->组件**
 
 - **Offer----------->剑指offer算法题**
@@ -16,4 +18,4 @@
 
 #个人简历
 
-![alt text](/images/resume.png 'resume')
+<!-- ![alt text](/images/resume.png 'resume') -->
