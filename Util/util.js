@@ -100,6 +100,19 @@ var careteenTools = {
 
     /**
      *
+     * @desc 清除某个 localStorage
+     * @param {String} key
+     */
+    removeStorage: function(key){
+        if(!this.isPrivateMode() && window.localStorage && this.getStorage(key) != null){
+            window.localStorage.removeItem(key);
+        }else if(this.getCookie(key) != null){
+            this.clearCookie(key);
+        }
+    },
+
+    /**
+     *
      * @desc 插入js
      * @param {String} url
      * @param {Function} callback
@@ -213,19 +226,6 @@ var careteenTools = {
 
         }
     },
-
-    /**
-	 *
-	 * @desc 清除某个 localStorage
-	 * @param {String} key
-	 */
-	removeStorage: function(key){
-		if(!this.isPrivateMode() && window.localStorage && this.getStorage(key) != null){
-			window.localStorage.removeItem(key);
-		}else if(this.getCookie(key) != null){
-			this.clearCookie(key);
-		}
-	},
 
     /**
      *
