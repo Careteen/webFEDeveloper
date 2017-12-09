@@ -19,14 +19,14 @@ var careteenTools = {
      * @param {String} domain [defalut: '']
      * @param {String} path [defalut: '/']
      */
-	setCookie: function (cname, cvalue, exdays, domain, path) {
-		var d = new Date();
-		d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-		var expires = "expires=" + d.toUTCString();
-		var path = path ? ";path=" + path : '/';
-		var domain = domain ? ";domain=" + domain : '';
-		document.cookie = cname + "=" + cvalue + "; " + expires + domain + path;
-	},
+    setCookie: function (cname, cvalue, exdays, domain, path) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        var expires = "expires=" + d.toUTCString();
+        var path = path ? ";path=" + path : '/';
+        var domain = domain ? ";domain=" + domain : '';
+        document.cookie = cname + "=" + cvalue + "; " + expires + domain + path;
+    },
 
     /**
      *
@@ -56,66 +56,66 @@ var careteenTools = {
     },
 
     /**
-	 *
-	 * @desc 判断是否是无痕模式
-	 * @return {Boolean}
-	 */
-	isPrivateMode: function(){
-		try {
-			window.localStorage.setItem('isPrivateMode', 1);
-			window.localStorage.removeItem('isPrivateMode');
-			return false;
-		} catch (e) {
-			return true;
-		}
-	},
-
-	/**
-	 *
-	 * @desc 设置 localStorage
-	 * @param {String} key
-	 * @param {String} value
-	 */
-	setStorage: function(key, value){
-		if(!this.isPrivateMode() && window.localStorage){
-			window.localStorage.setItem(key, value);
-		}else {
-			this.setCookie(key, value, 30);
-		}
-	},
-
-	/**
-	 *
-	 * @desc 取到某个 localStorage
-	 * @param {String} key
-	 * @return {String}
-	 */
-	getStorage: function(key){
-		if(!this.isPrivateMode() && window.localStorage){
-			return window.localStorage.getItem(key);
-		}else {
-			return this.getCookie(key);
-		}
-	},
+     *
+     * @desc 判断是否是无痕模式
+     * @return {Boolean}
+     */
+    isPrivateMode: function(){
+        try {
+            window.localStorage.setItem('isPrivateMode', 1);
+            window.localStorage.removeItem('isPrivateMode');
+            return false;
+        } catch (e) {
+            return true;
+        }
+    },
 
     /**
-	 *
-	 * @desc 插入js
-	 * @param {String} url
-	 * @param {Function} callback
-	 */
-	loadJs: function (url, callback) {
-		var doc = window.document,
-	        head = doc.head || doc.getElementsByTagName("head")[0] || doc.documentElement,
-	        script = doc.createElement("script");
-	    script.type = "text/javascript";
-	    script.charset = "utf-8";
-	    script.onload = function () {
-	        callback && callback.call(this);
-	    };
-	    script.src = url;
-	    head.insertBefore(script, head.firstChild);
-	},
+     *
+     * @desc 设置 localStorage
+     * @param {String} key
+     * @param {String} value
+     */
+    setStorage: function(key, value){
+        if(!this.isPrivateMode() && window.localStorage){
+            window.localStorage.setItem(key, value);
+        }else {
+            this.setCookie(key, value, 30);
+        }
+    },
+
+    /**
+     *
+     * @desc 取到某个 localStorage
+     * @param {String} key
+     * @return {String}
+     */
+    getStorage: function(key){
+        if(!this.isPrivateMode() && window.localStorage){
+            return window.localStorage.getItem(key);
+        }else {
+            return this.getCookie(key);
+        }
+    },
+
+    /**
+     *
+     * @desc 插入js
+     * @param {String} url
+     * @param {Function} callback
+     */
+    loadJs: function (url, callback) {
+        var doc = window.document,
+        head = doc.head || doc.getElementsByTagName("head")[0] || doc.documentElement,
+        script = doc.createElement("script");
+        script.type = "text/javascript";
+        script.charset = "utf-8";
+        script.onload = function () {
+            callback && callback.call(this);
+        };
+        script.src = url;
+        head.insertBefore(script, head.firstChild);
+    },
 
     /**
      * @desc 深拷贝，支持常见类型
@@ -163,56 +163,56 @@ var careteenTools = {
     },
 
     /**
-	 *
-	 * @desc 弹窗、蒙层...时禁止下层屏幕 滚动
-	 */
-	lockScreen: function() {
-		document.querySelector('body').setAttribute('style', 'position: fixed;');
-	},
-
-	/**
-	 *
-	 * @desc 弹窗、蒙层...时取消 禁止下层屏幕 滚动
-	 */
-	unLockScreen: function() {
-		document.querySelector('body').setAttribute('style', 'position: relative;');
-	},
+     *
+     * @desc 弹窗、蒙层...时禁止下层屏幕 滚动
+     */
+    lockScreen: function() {
+        document.querySelector('body').setAttribute('style', 'position: fixed;');
+    },
 
     /**
-	 *
-	 * @desc 初始化移动端 local/dev/test/online 调试工具 eruda
-	 * @example 在项目入口处加入
-	 */
-	initEruda: function(){
-		if (!/eruda=true/.test(window.location) || this.getStorage('eruda') !== 'true') return;
-		var url = '//cdn.bootcss.com/eruda/1.2.4/eruda.min.js';
-		this.loadJs(url, function() {
-			eruda.init();
-		});
-	},
+     *
+     * @desc 弹窗、蒙层...时取消 禁止下层屏幕 滚动
+     */
+    unLockScreen: function() {
+        document.querySelector('body').setAttribute('style', 'position: relative;');
+    },
 
     /**
-	 *
-	 * @desc 点击某个元素10次 触发 eruda, 再点击10次 取消 eruda 。
-	 * @example 使用前 先在需要加调试功能的页面入口加上 initEruda
-	 */
-	ERUDA_COUNT: 0,
-	showEruda: function() {
-		this.ERUDA_COUNT++;
-		if (this.ERUDA_COUNT >= 10) {
-			var eruda = this.getStorage('eruda');
-	        if (!eruda || eruda === 'false'){
-				this.setStorage('eruda', 'true');
-				window.location.href = this.setParam('eruda', 'true');
-				location.reload();
-	        } else {
-				this.setStorage('eruda', 'false');
-				window.location.href = this.removeParam('eruda');
-				location.reload();
-	        }
+     *
+     * @desc 初始化移动端 local/dev/test/online 调试工具 eruda
+     * @example 在项目入口处加入
+     */
+    initEruda: function(){
+        if (!/eruda=true/.test(window.location) || this.getStorage('eruda') !== 'true') return;
+        var url = '//cdn.bootcss.com/eruda/1.2.4/eruda.min.js';
+        this.loadJs(url, function() {
+            eruda.init();
+        });
+    },
 
-	    }
-	},
+    /**
+     *
+     * @desc 点击某个元素10次 触发 eruda, 再点击10次 取消 eruda 。
+     * @example 使用前 先在需要加调试功能的页面入口加上 initEruda
+     */
+    ERUDA_COUNT: 0,
+    showEruda: function() {
+        this.ERUDA_COUNT++;
+        if (this.ERUDA_COUNT >= 10) {
+            var eruda = this.getStorage('eruda');
+            if (!eruda || eruda === 'false'){
+                this.setStorage('eruda', 'true');
+                window.location.href = this.setParam('eruda', 'true');
+                location.reload();
+            } else {
+                this.setStorage('eruda', 'false');
+                window.location.href = this.removeParam('eruda');
+                location.reload();
+            }
+
+        }
+    },
 
     /**
 	 *
