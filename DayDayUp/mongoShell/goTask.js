@@ -13,4 +13,8 @@ var jsonDatabase = {
 var db = connect('log');
 db.login.insert(jsonDatabase);
 
+
+// 对比循环插入和批量插入
+
+
 print('[demo]:log print success');
