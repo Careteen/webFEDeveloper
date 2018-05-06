@@ -34,6 +34,38 @@ function merge(array, p, q, r) {
 
 console.log(mergeSort([1, 4, 7, 3, 6, 9, 2, 8]))
 
+// 归并排序2
+function mergeSortNew (arr){
+    var len = arr.length;
+    if (len < 2) {
+        return arr;
+    }
+    var middle = Math.floor(arr.length / 2);
+    var left = arr.slice(0, middle);
+    var right = arr.slice(middle);
+    return mergeNew(mergeSortNew(left), mergeSortNew(right));
+}
+
+function mergeNew (left, right) {
+    var result = [];
+    while (left.length && right.length) {
+        if (left[0] <= right[0]) {
+            result.push(left.shift());
+        }else {
+            result.push(right.shift());
+        }
+    }
+
+    while (left.length) {
+        result.push(left.shift());
+    }
+    while (right.length) {
+        result.push(right.shift());
+    }
+
+    return result;
+}
+console.log(mergeSortNew([1, 4, 7, 3, 6, 9, 2, 8]))
 /**
  *1、实现一个函数：
     参数：两个已经排好序的数组

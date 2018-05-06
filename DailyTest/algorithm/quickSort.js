@@ -18,3 +18,18 @@ var quickSort = function (arr) {
     return quickSort(left).concat([pivot], quickSort(right));
 }
 console.log(quickSort([2, 7, 44, 35, 12, 6]));
+
+// 冒泡排序
+
+var bubbleSort = function (arr) {
+    for (var i = 0; i < arr.length; i++) {
+        for (var j = 0; j < arr.length; j++) {
+            if (arr[j] > arr[j+1]) {
+                var temp = arr[j+1];
+                arr[j+1] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+    return arr
+}
