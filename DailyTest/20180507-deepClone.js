@@ -2,6 +2,7 @@
 * deep clone
 * @param  {[type]} parent object 需要进行克隆的对象
 * @return {[type]}        深克隆后的对象
+*   参考：https://juejin.im/post/5abb55ee6fb9a028e33b7e0a
 */
 const clone = parent => {
   // 维护两个储存循环引用的数组
