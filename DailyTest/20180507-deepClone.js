@@ -1,5 +1,6 @@
 /**
 * deep clone
+* todo: 友好的错误提示；完善各类型判断；
 * @param  {[type]} parent object 需要进行克隆的对象
 * @return {[type]}        深克隆后的对象
 *   参考：https://juejin.im/post/5abb55ee6fb9a028e33b7e0a
