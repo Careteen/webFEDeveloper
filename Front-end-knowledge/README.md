@@ -6,20 +6,20 @@
 
 ### 目录
 
-路径 | 内容
-:--- | : ---
-css-basis | css基础知识
-js-basis | js基础知识
-advanced | js进阶知识
-vue-analysis | vue解析
-http | http知识
-git | git
-node | node基础知识
-algorithm | 前端需要掌握的算法题
-product-thinking | 产品思维
-iq-test | 面试常考智力题
-interview-summary | 面试总结
-daily-essay | 日常牢骚
+| 路径 | 内容 |
+| --- |:--- :| ---:|
+| css-basis | css基础知识 |
+| js-basis | js基础知识 |
+| advanced | js进阶知识 |
+| vue-analysis | vue解析 |
+| http | http知识 |
+| git | git |
+| node | node基础知识 |
+| algorithm | 前端需要掌握的算法题 |
+| product-thinking | 产品思维 |
+| iq-test | 面试常考智力题 |
+| interview-summary | 面试总结 |
+| daily-essay | 日常牢骚 |
 
 ### 传送门
 
