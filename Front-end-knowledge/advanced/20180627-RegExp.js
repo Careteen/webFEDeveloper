@@ -52,14 +52,15 @@ const RegExpFns = {
      *
      * @desc 判断一个数是否为素数
      * @param {Number} num
-     * @return {Boolean} 
+     * @return {Boolean}
      * @example
      ```js
      RegExpFns._isPrime(2); // true
      ```
+     * @reference https://github.com/jawil/blog/issues/20
      */
     _isPrime (num) {
-
+        return !/^1?$|^(11+?)\1+$/.test(Array(num + 1).join('1'))
     }
 }
 
@@ -70,6 +71,7 @@ const RegExpFns = {
  */
 // console.log('_camel2Kebab', RegExpFns._camel2Kebab('careteenLanlan'));
 // console.log('_kebab2Camel', RegExpFns._kebab2Camel('careteen-lanlan-a'));
-console.log('_thousandSeq', RegExpFns._thousandSeq('1234567'));
+// console.log('_thousandSeq', RegExpFns._thousandSeq('1234567'));
+console.log('_isPrime', RegExpFns._thousandSeq('2'));
 
 // export default RegExpFns;
