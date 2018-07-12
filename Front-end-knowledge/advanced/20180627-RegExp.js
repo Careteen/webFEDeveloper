@@ -61,7 +61,12 @@ const RegExpFns = {
      */
     _isPrime (num) {
         return !/^1?$|^(11+?)\1+$/.test(Array(num + 1).join('1'))
-    }
+    },
+
+    /**
+     *
+     * @desc 
+     */
 }
 
 
