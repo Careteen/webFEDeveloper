@@ -65,7 +65,7 @@ const RegExpFns = {
 
     /**
      *
-     * @desc 
+     * @desc 设置cookie
      */
 }
 
