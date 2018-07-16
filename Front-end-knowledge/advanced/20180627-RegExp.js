@@ -65,8 +65,11 @@ const RegExpFns = {
 
     /**
      *
-     * @desc 设置cookie
+     * @desc 设置 cookie 
      */
+    _setCookie () {
+
+    }
 }
 
 
