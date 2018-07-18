@@ -15,7 +15,7 @@ const RegExpFns = {
      ```
      */
     _camel2Kebab (str) {
-        return str.replace(/([A-Z])/g, '-$1').toLowerCase()
+        return str.replace(/([A-Z])/g, '-$1').toLowerCase();
     },
 
     /**
@@ -30,7 +30,7 @@ const RegExpFns = {
      */
     _kebab2Camel (str) {
         return str.replace(/-(\w)/g, (match, $1) => {
-            return $1.toUpperCase()
+            return $1.toUpperCase();
         })
     },
 
@@ -45,7 +45,7 @@ const RegExpFns = {
      ```
      */
     _thousandSeq (str) {
-        return str && str.toString().replace(/(?!^)(?=(\d{3})+$)/g, ',')
+        return str && str.toString().replace(/(?!^)(?=(\d{3})+$)/g, ',');
     },
 
     /**
@@ -60,15 +60,48 @@ const RegExpFns = {
      * @reference https://github.com/jawil/blog/issues/20
      */
     _isPrime (num) {
-        return !/^1?$|^(11+?)\1+$/.test(Array(num + 1).join('1'))
+        return !/^1?$|^(11+?)\1+$/.test(Array(num + 1).join('1'));
     },
 
     /**
      *
-     * @desc 设置 cookie 
+     * @desc 去掉字符前后空格
+     * @param {String} str
+     * @return {String|Boolean}
+     * @example
+     ```js
+     RegExpFns._trim(' care teen  '); // 'care teen'
+     ```
      */
-    _setCookie () {
+    _trim (str) {
+        if (typeof str !== 'string') {
+            console.error('[TypeError]: argument must be a string');
+            return false;
+        }
+        return str.replace(/(^\s*)|(\s*$)/g, '');
+    },
 
+    /**
+     *
+     * @desc 获取 url 某个 param 的 value
+	 * @param  {String} name
+     * @param  {String} url   [default: location.href]
+	 * @return {String|Boolean}
+     * @example
+     ```js
+     RegExpFns._getParam('name', 'http://blog.careteen.wang?name=careteen&age=22'); // 'careteen'
+     ```
+     */
+    _getParam (name, url) {
+        if (typeof name !== 'string') return false;
+		if (!url) url = window.location.href;
+        // 当遇到name[xx]时，对方括号做一下转义为 name\[xxx\]，因为下面还需要使用name做正则
+		name = name.replace(/[\[\]]/g, '\\$&');
+		const regex = new RegExp(`[?&]${name}(=([^&#]*)|&|#|$)`);
+		const results = regex.exec(url);
+		if (!results) return null;
+		if (!results[2]) return '';
+		return decodeURIComponent(results[2].replace(/\+/g, ' '));
     }
 }
 
