@@ -7,7 +7,7 @@ for (var i = 0; i < list.length; i++) {
         console.log(i + 1);
     }, 0)
 }
-// 上面结果每次输入 6
+// 上面结果每次输出 6
 
 // 使用闭包
 var list = [1,2,3,4,5]
