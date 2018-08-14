@@ -4,21 +4,38 @@
 
 前端知识体系太过繁杂，从16年4月份入门时的懵逼，到现在把面试所需的各个知识点啃了N多遍，但仍觉得对前端的认识还是非常浅显，所以希望构建一棵前端知识树，将搬砖过程所遇到的新知识和踩过的坑做一个记录加深记忆。
 
+不想当设计师的开发者不是好产品。
+
 ### 目录
 
 | 路径 | 内容 |
+
 | --- |:--- :| ---:|
+
 | css-basis | css基础知识 |
+
 | js-basis | js基础知识 |
+
 | advanced | js进阶知识 |
+
+| canvas | canvas |
+
 | vue-analysis | vue解析 |
+
 | http | http知识 |
+
 | git | git |
+
 | node | node基础知识 |
+
 | algorithm | 前端需要掌握的算法题 |
+
 | product-thinking | 产品思维 |
+
 | iq-test | 面试常考智力题 |
+
 | interview-summary | 面试总结 |
+
 | daily-essay | 日常牢骚 |
 
 ### 传送门
