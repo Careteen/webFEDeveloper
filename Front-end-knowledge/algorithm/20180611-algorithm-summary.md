@@ -1,4 +1,4 @@
-## 常用算法总结
+## 常用数据结构总结
 
 ### 栈
 
@@ -152,16 +152,86 @@ class SqQueue {
 - 题目描述：一群猴子排成一圈，按 1，2，...，n 依次编号。然后从第 1 只开始数，数到第 m 只,把它踢出圈，从它后面再开始数，再数到第 m 只，在把它踢出去...，如此不停的进行下去，直到最后只剩下一只猴子为止，那只猴子就叫做大王。要求编程模拟此过程，输入 m、n，输出最后那个大王的编号。
 > 代码实现[循环队列来模拟击鼓传花的游戏（约瑟夫环问题）](https://www.cnblogs.com/dee0912/p/4960025.html)
 
+### 链表
 
+#### 概念
 
+- 链表是一个线性结构，同时也是一个天然的递归结构。链表结构可以充分利用计算机内存空间，实现灵活的内存动态管理。但是链表失去了数组随机读取的优点，同时链表由于增加了结点的指针域，空间开销比较大。
+- 许多链表的实现都在链表前面有一个特殊的节点，叫做头节点。最后一个节点指向null，所以最后再加上一个null节点。
+- 在链表中插入一个节点的效率很高。向链表中插入一个节点，需要修改它前面的节点，使其指向新加入的节点，而新加入的节点则指向前面指向的节点。
+- 从链表中删除一个节点也很简单，将待删除的元素的前驱节点指向待删除的后续节点，同时将待删除元素指向null来释放。
 
-
-
-
-
-
-
-
+#### 实现
+单项链表
+```js
+class Node {
+  constructor(v, next) {
+    this.value = v
+    this.next = next
+  }
+}
+class LinkList {
+  constructor() {
+    // 链表长度
+    this.size = 0
+    // 虚拟头部
+    this.dummyNode = new Node(null, null)
+  }
+  find(header, index, currentIndex) {
+    if (index === currentIndex) return header
+    return this.find(header.next, index, currentIndex + 1)
+  }
+  addNode(v, index) {
+    this.checkIndex(index)
+    // 当往链表末尾插入时，prev.next 为空
+    // 其他情况时，因为要插入节点，所以插入的节点的 next 应该是 prev.next
+    // 然后设置 prev.next 为插入的节点
+    let prev = this.find(this.dummyNode, index, 0)
+    prev.next = new Node(v, prev.next)
+    this.size++
+    return prev.next
+  }
+  insertNode(v, index) {
+    return this.addNode(v, index)
+  }
+  addToFirst(v) {
+    return this.addNode(v, 0)
+  }
+  addToLast(v) {
+    return this.addNode(v, this.size)
+  }
+  removeNode(index, isLast) {
+    this.checkIndex(index)
+    index = isLast ? index - 1 : index
+    let prev = this.find(this.dummyNode, index, 0)
+    let node = prev.next
+    prev.next = node.next
+    node.next = null
+    this.size--
+    return node
+  }
+  removeFirstNode() {
+    return this.removeNode(0)
+  }
+  removeLastNode() {
+    return this.removeNode(this.size, true)
+  }
+  checkIndex(index) {
+    if (index < 0 || index > this.size) throw Error('Index error')
+  }
+  getNode(index) {
+    this.checkIndex(index)
+    if (this.isEmpty()) return
+    return this.find(this.dummyNode, index, 0).next
+  }
+  isEmpty() {
+    return this.size === 0
+  }
+  getSize() {
+    return this.size
+  }
+}
+```
 
 ### 二叉树
 
@@ -187,7 +257,7 @@ class SqQueue {
 
 #### STAR？举个栗子🌰
 
-
+- [二叉查找树的实现(前序、中序、后续遍历)](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/algorithm/20180611-algorithm-summary.js)
 
 ####  附录
 
