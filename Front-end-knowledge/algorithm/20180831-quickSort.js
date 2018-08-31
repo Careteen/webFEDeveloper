@@ -4,7 +4,9 @@ var quickSort = function (arr) {
     if (arr.length <= 1) {
         return arr;
     }
-    var pivotIndex = Math.floor(arr.length / 2);
+    // var pivotIndex = Math.floor(arr.length / 2);
+    // 运算符
+    var pivotIndex = arr.length >> 1;
     var pivot = arr.splice(pivotIndex, 1)[0];
     var left = [];
     var right = [];

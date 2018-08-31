@@ -1,4 +1,4 @@
-## 常用数据结构总结
+## 常用数据结构&算法总结
 
 ### 栈
 
@@ -262,3 +262,27 @@ class LinkList {
 ####  附录
 
 参考： [二叉树与JS](http://foreverz.cn/2016/10/19/%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%8EJavaScript/)
+
+### 冒泡排序
+
+- 实现见[冒泡排序](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/algorithm/20180831-quickSort.js)
+
+### 插入排序
+
+- 实现见[插入排序](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/algorithm/20180831-insertionSort.js)
+
+### 选择排序
+
+- 实现见[选择排序]()
+
+### 快排
+
+- 实现见[快排](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/algorithm/20180831-quickSort.js)
+
+### 归并排序
+
+- 实现见[归并排序](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/algorithm/20180831-mergeSort.js)
+
+### 系统自带的排序
+
+- [v8实现](https://github.com/v8/v8/blob/ad82a40509c5b5b4680d4299c8f08d6c6d31af3c/src/js/array.js##L760:7)是小于是个数时使用插入排序，否则使用快排。

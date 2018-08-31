@@ -38,7 +38,7 @@ var tree = {
     }
 }
 
-// 前序遍历
+// 前序遍历 - 递归实现
 var preorderList = [];
 function preorderTraversal(node) {
     if (node) {
@@ -47,11 +47,33 @@ function preorderTraversal(node) {
         preorderTraversal(node.right);
     }
 }
+// 前序遍历 - 非递归实现
+function pre(root) {
+    if (root) {
+        let stack = [];
+        // 先将根节点 push
+        stack.push(root);
+        // 判断栈中是否为空
+        while (stack.length > 0) {
+            // 弹出栈顶元素
+            root = stack.pop();
+            console.log(root);
+            // 因为先序遍历是先左后右，栈是先进后出结构
+            // 所以先 push 右边再 push 左边
+            if (root.right) {
+                stack.push(root.right);
+            }
+            if (root.left) {
+                stack.push(root.left);
+            }
+        }
+    }
+} 
 preorderTraversal(tree);
 console.log('前序遍历： ' + preorderList);
 // 前序遍历： -,+,a,*,b,c,/,d,e
 
-// 中序遍历
+// 中序遍历 - 递归实现
 var inorderList = [];
 function inorderTraversal(node) {
     if (node) {
@@ -60,11 +82,32 @@ function inorderTraversal(node) {
         inorderTraversal(node.right);
     }
 }
+// 中序遍历 - 非递归实现
+function mid(root) {
+    if (root) {
+      let stack = [];
+      // 中序遍历是先左再根最后右
+      // 所以首先应该先把最左边节点遍历到底依次 push 进栈
+      // 当左边没有节点时，就打印栈顶元素，然后寻找右节点
+      // 对于最左边的叶节点来说，可以把它看成是两个 null 节点的父节点
+      // 左边打印不出东西就把父节点拿出来打印，然后再看右节点
+      while (stack.length > 0 || root) {
+        if (root) {
+          stack.push(root);
+          root = root.left;
+        } else {
+          root = stack.pop();
+          console.log(root);
+          root = root.right;
+        }
+      }
+    }
+  }
 inorderTraversal(tree);
 console.log('中序遍历： ' + inorderList);
 // 中序遍历： a,+,b,*,c,-,d,/,e
 
-// 后序遍历
+// 后序遍历 - 递归实现
 var postorderList = [];
 function postorderTraversal(node) {
     if (node) {
@@ -73,6 +116,30 @@ function postorderTraversal(node) {
         postorderList.push(node.value);
     }
 }
+// 后序遍历 - 非递归实现
+function pos(root) {
+    if (root) {
+      let stack1 = [];
+      let stack2 = [];
+      // 后序遍历是先左再右最后根
+      // 所以对于一个栈来说，应该先 push 根节点
+      // 然后 push 右节点，最后 push 左节点
+      stack1.push(root);
+      while (stack1.length > 0) {
+        root = stack1.pop();
+        stack2.push(root);
+        if (root.left) {
+          stack1.push(root.left);
+        }
+        if (root.right) {
+          stack1.push(root.right);
+        }
+      }
+      while (stack2.length > 0) {
+        console.log(s2.pop());
+      }
+    }
+  }
 postorderTraversal(tree);
 console.log('后序遍历： ' + postorderList);
 // 后序遍历： a,b,c,*,+,d,e,/,-
