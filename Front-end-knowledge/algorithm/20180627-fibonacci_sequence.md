@@ -46,6 +46,8 @@ function fibonacciNew(n, num1 = 1, num2 = 1) {
 
 ### 引用
 
+- [尾调用优化 -ruanES6](http://es6.ruanyifeng.com/#docs/function#%E5%B0%BE%E8%B0%83%E7%94%A8%E4%BC%98%E5%8C%96)
+
 - [朋友你听说过尾递归吗](http://imweb.io/topic/584d33049be501ba17b10aaf)
 
 - [斐波那契数列 -百度百科](https://baike.baidu.com/item/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/99145)
