@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>排序过程可视化</title>
+</head>
+<style>
+  .field {
+    width: 500px;
+    height: 510px;
+    background: #000;
+    position: relative;
+  }
+</style>
+<body>
+  <h2><span class="way">冒泡</span>排序过程可视化</h2>
+  <div class="field">
+  </div>
+</body>
+<script>
+
+  /**
+   * 
+   * @desc 排序过程可视化
+   * @param {String} way 排序方式
+   * @param {Array} array 需要排序的数组
+   * @param {Number} wait 每次排序间隔时间
+   * @todo 增加其他排序
+   */ 
+  var sortVisulization = function(way, array, wait){
+    var state = [];
+    var timer = null;
+    var len = array.length;
+    var field = document.querySelector('.field');
+    field.style.width = (50 * len + 10) + 'px';
+    
+    // 冒泡排序
+    var bubbleSort = function (arr) {
+      for (var i = 0; i < arr.length; i++) {
+          for (var j = 0; j < arr.length; j++) {
+              if (arr[j] > arr[j+1]) {
+                  var temp = arr[j+1];
+                  arr[j+1] = arr[j];
+                  arr[j] = temp;
+                  state.push(JSON.parse(JSON.stringify(arr)));
+              }
+          }
+      }
+      return arr
+    }
+
+    //快速排序
+    // 递归的方式不好可视化
+    var quickSort = function (arr) {
+      if (arr.length <= 1) {      
+        return arr;
+      }      
+      // var pivotIndex = Math.floor(arr.length / 2);
+      // 运算符
+      var pivotIndex = arr.length >> 1;
+      var pivot = arr.splice(pivotIndex, 1)[0];
+      var left = [];
+      var right = [];
+      for (var i = 0; i < arr.length; i++) {
+        if (arr[i] < pivot) {　　　　
+          left.push(arr[i]);
+        } else {　　　　　　
+          right.push(arr[i]);
+        }        
+      }
+      // state.push(JSON.parse(JSON.stringify(left.concat([pivot], right))));
+      return quickSort(left).concat([pivot], quickSort(right));
+    }    
+
+    // 绘制
+    var draw = function () {      
+      var curItem = state.shift() || [];
+      if (state.length === 0) {
+        clearInterval(timer);
+      }
+      field.innerHTML = '';
+      for (var i = 0; i < len; i++) {
+        var barDiv = document.createElement('div');
+        barDiv.style.position = 'absolute';
+        barDiv.style.bottom = 0;
+        barDiv.style.background = 'orange';
+        barDiv.style.border = '1px solid brown';
+        barDiv.style.width = '48px';
+        barDiv.style.height = 50 * curItem[i] + 'px';
+        barDiv.style.left = 50 * i + 'px';
+        console.log(i, curItem[i])
+        field.appendChild(barDiv);
+      }
+    }    
+
+    switch (way) {
+      case 'bubble':
+        bubbleSort(array)  
+        break;   
+      case 'quick':
+        quickSort(array)  
+        break;         
+      default:
+        break;
+    }
+    timer = setInterval(draw, wait)
+  }
+
+
+  // 测试
+  var testArray = [8, 10, 3, 5, 6, 9, 2, 4, 7, 1];
+  sortVisulization('bubble', testArray, 500)
+</script>
+</html>

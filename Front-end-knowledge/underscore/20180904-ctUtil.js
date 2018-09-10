@@ -34,7 +34,7 @@
   }
 
   // 内部函数
-  var cb = function () {
+  var cb = function (value, context, argCount) {
     
   }
 

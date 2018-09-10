@@ -58,6 +58,8 @@ function _inherits(subClass, superClass) {
 	if (typeof superClass !== "function" && superClass !== null) {
 		throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
 	}
+	// 使用 Object.create 实现子类继承父类
+	// 将子类原型指向父类原型
 	subClass.prototype = Object.create(superClass && superClass.prototype, {
 		constructor: {
 			value: subClass,
