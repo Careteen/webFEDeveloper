@@ -2,9 +2,35 @@
  * @desc 尝试手写一个轻量级类underscore
  */ 
 (function() {
-  // 构造函数
-  var _ = function (obj) {
+  /**
+   * @desc 执行环境判断
+   *       希望服务于浏览器（全局对象为window，但是self比window更通用，能用于一些不具有窗口的上下文环境中（web workers））
+   *       也能服务于诸如nodejs搭建的服务器（nodejs全局对象全局对象为global）
+   */ 
+  var root = typeof self == 'object' && self.self === self && self || 
+    typeof global == 'object' && global.global === global && global ||
+    this;
 
+  // 松弛绑定之前全局环境中的 _
+  var previousUnderscore = root._;
+
+  /**
+   * @desc 构造函数
+   *       使用函数而非普通对象，是为了能被oop方式调用
+   *       _.each([1,2,3],function () {...}) 也可以下方式调用
+   *       _([1,2,3]).each(function() {...})
+   * @param {*} obj 
+   */ 
+  var _ = function (obj) {
+    if (obj instanceof _) return obj;
+    if (!(this instanceof _)) return new _(obj)
+    this._wraped = obj;
+  }
+
+  // 松弛绑定之前全局环境中的 _
+  _.noConflict = function () {
+    root._ = previousUnderscore;
+    return this;
   }
 
   // 内部函数
@@ -143,4 +169,17 @@
       return result;
     }
   }
-}).call(this)
+
+  /**
+   * @desc 对外暴露
+   */ 
+  if (typeof exports != 'undefined' && !exports.nodeType) {
+    if (typeof module != module && !module.nodeType && module.exports) {
+      exports = module.exports = _;
+    }
+    exports._ = _;
+  } else {
+    root._ = _;
+  }
+  
+})();
