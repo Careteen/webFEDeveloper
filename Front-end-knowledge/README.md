@@ -19,6 +19,7 @@
 | `http` | http知识 |
 | `git` | git |
 | `node` | node基础知识 |
+| `design-pattern` | 设计模式 |
 | `algorithm` | 前端需要掌握的算法题 |
 | `product-thinking` | 产品思维 |
 | `iq-test` | 面试常考智力题 |
@@ -77,6 +78,10 @@
 #### Git
 - [git详解](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/git/20180521-git.md)
 
+
+#### Design Pattern
+
+- [Js设计模式详解](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/design-pattern)
 
 #### Daily Essay
 
