@@ -9,40 +9,81 @@
 ### 目录
 
 | 路径 | 内容 |
-
-| --- |:--- :| ---:|
-
-| css-basis | css基础知识 |
-
-| js-basis | js基础知识 |
-
-| advanced | js进阶知识 |
-
-| canvas | canvas |
-
-| vue-analysis | vue解析 |
-
-| http | http知识 |
-
-| git | git |
-
-| node | node基础知识 |
-
-| algorithm | 前端需要掌握的算法题 |
-
-| product-thinking | 产品思维 |
-
-| iq-test | 面试常考智力题 |
-
-| interview-summary | 面试总结 |
-
-| daily-essay | 日常牢骚 |
+| :---: | :---: |
+| `css-basis` | css基础知识 |
+| `js-basis` | js基础知识 |
+| `advanced` | js进阶知识 |
+| `canvas` | canvas |
+| `underscore` | underscore解析 |
+| `vue-analysis` | vue解析 |
+| `http` | http知识 |
+| `git` | git |
+| `node` | node基础知识 |
+| `algorithm` | 前端需要掌握的算法题 |
+| `product-thinking` | 产品思维 |
+| `iq-test` | 面试常考智力题 |
+| `interview-summary` | 面试总结 |
+| `daily-essay` | 日常牢骚 |
 
 ### 传送门
+#### JavaScript
+- [深克隆的简单实现](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/advanced/20180507-deepClone.js)
+- [Node端事件总线event-bus的实现解析](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/advanced/20180507-event-emitter.js)
+- [网站性能优化的多种方式](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/advanced/20180613-wpo.md)
+- [promise原理及实现](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/advanced/20180614-promise.md)
+- [事件循环原理](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/advanced/20180616-event-loop.md)
+- [使用Promise.race和delay取消XHR请求](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/advanced/20180616-promise-cancel-xhr.md)
+- [通过babel将ES6的extends转换为ES5写法](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/advanced/20180619-babel_transform_es6_extends_to_es5.js)
+- [babel编译ES6时get、set能继承](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/advanced/20180619-static_get_set_can_extend.js)
+- [正则表达式奇技淫巧](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/advanced/20180627-RegExp.md)
+- [JS奇技淫巧](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/advanced/20180724-js_skill.md)
+- [模板引擎原理及实现方式](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/advanced/20180801-template_engine.md)
 
-- [从输入url到页面展示到底发生了什么](https://github.com/careteenL/webFEDeveloper/tree/master/Front-end-knowledge/http/20180509-url-loading-process.md)
+#### Underscore
+- [源码带注释](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/underscore/20180902-underscore_1.8.3_analysis.js)
+- [自己尝试仿写一个underscore](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/underscore/20180904-ctUtil.js)
+
+#### Algorithm
+
+- [数据结构总结](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/algorithm/20180611-algorithm-summary.md) (ps: 目前已更新 栈、队列(链队列、循环队列)、二叉树(二叉查找树))
+- [斐波那契数列](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/algorithm/20180627-fibonacci_sequence.md)
+- [排序过程可视化](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/algorithm/20180910-sort_visualization.md)（ps：目前只加入冒泡）
+- [LazyMan的原理](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/algorithm/20180911-lazy_man.md)
+- [二分查找实现](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/algorithm/20180911-bin_search.js)
+
+#### Vue
 
 - [vuex源码解析](https://github.com/careteenL/webFEDeveloper/tree/master/Front-end-knowledge/vue-analysis/20180618-vuex-analysis.md)
+
+#### Demo
+
+- [CSS Float 使用](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/demo/20161226divcss.html)
+- [accordion](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/demo/20170110accordion.html)
+- [column](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/demo/20170208column.html)
+- [pictureLayout](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/demo/20170226pictureLayout.html)
+- [translate代替top](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/demo/20180914-translate.html)
+- [如何渲染几万条数据并不卡住界面](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/demo/20180914-requestAnimationFrame.html)
+
+#### HTTP
+
+- [从输入url到页面展示到底发生了什么](https://github.com/careteenL/webFEDeveloper/tree/master/Front-end-knowledge/http/20180509-url-loading-process.md)
+- [DDOS攻击](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/http/20180618-ddos.md)
+- [HTTP基础知识](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/http/20180618-http-basis.md)
+- [HTTPS](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/http/20180619-https.md)
+- [http keep-alive详解](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/http/20180619-keep-alive.md)
+- [进程和线程](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/http/20180619-processes-and-threads.md)
+- [HTTP2.0](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/http/201809013-http_2.0.md)
+
+#### Git
+- [git详解](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/git/20180521-git.md)
+
+
+#### Daily Essay
+
+- [2018-08-19:工程师思维](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/daily-essay/20180819-study.md)
+- [2018-09-02:我心迷茫](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/daily-essay/20180902-I_lost_my_heart.md)
+- [2018-09-03:怡然自得](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/daily-essay/20180903-Happy_and_pleased_with_myself.md)
+- [2018-09-13:微信游戏化产品运营](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/daily-essay/20180913-wx_gamification_of_product_operation.md)
 
 ### 起跑线
 
