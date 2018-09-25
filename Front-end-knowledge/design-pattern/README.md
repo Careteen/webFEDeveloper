@@ -20,7 +20,7 @@
 
 简易单例(创建一个浮层)
 ```js
-let singleton = () =>{
+let singleton = () => {
   let createMask
   return () => {
     return createMask || (createMask = document.body.appendChild(document.createElement('div')))
@@ -55,3 +55,29 @@ let createMask = singleton(() => {
 #### What
 
 简单工厂模式是由一个方法来决定到底要创建哪个类的实例, 而这些实例经常都拥有相同的接口. 这种模式主要用在所实例化的类型在编译期并不能确定， 而是在执行期决定的情况。 说的通俗点，就像公司茶水间的饮料机，要咖啡还是牛奶取决于你按哪个按钮。
+
+#### How & Where
+
+简单工厂模式在工作中使用十分频繁。比如封装的ajax库，会根据传参确定是调用`get`还是`post`。
+
+ES5中对new的实现使用到了简单工厂模式
+```js
+function A(name) {
+  this.name = name
+}
+
+function ObjectFactory() {
+  let obj = {},
+      Constructor = Array.prototype.shift.call(arguments)
+  obj.__proto__ = typeof Constructor.prototype === 'number' ? 
+    Object.prototype : 
+    Constructor.prototype
+  let ret = Constructor.apply(obj, arguments)
+  // 返回值取决于传参
+  return typeof ret === 'object' ? ret : obj
+}
+
+let a = ObjectFactory(A, 'Careteen')
+alert(a.name)  // Careteen
+```
+以上代码可知，所谓的new，本身只是一个对象的复制和改写过程，最终具体生成什么是由调用时传参决定。
