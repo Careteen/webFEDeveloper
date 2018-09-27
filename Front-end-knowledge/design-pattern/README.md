@@ -4,6 +4,13 @@
 
 提高代码可读性、复用性、可扩展性。
 
+### 传送门
+
+- [面向对象的JavaScript](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/design-pattern/20180921_oop-js.md)
+- [单例模式](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/design-pattern/20180926_singleton.md)
+- [策略模式](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/design-pattern/20180926_strategy.md)
+- [代理模式](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/design-pattern/20180926_proxy.md)
+
 ### 目录
 
 - [单例模式](#单例模式)
