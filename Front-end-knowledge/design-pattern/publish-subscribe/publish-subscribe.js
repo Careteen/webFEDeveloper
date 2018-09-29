@@ -93,6 +93,7 @@ var Event = (function () {
 
     /**
      * @desc 内部函数 - 创建命名空间 核心函数
+     * @param {String} namespace 默认值为 _default
      */ 
     _create = function (namespace) {
       var namespace = namespace || _default,
@@ -103,7 +104,7 @@ var Event = (function () {
              * @desc 注册事件
              * @param {String} key
              * @param {Function} fn
-             * @param {String} last 是否作为最后一次事件注册
+             * @param {String} last 先调用后注册场景下，注册时只会读取最新一次注册事件 携带的参数
              */ 
             listen: function (key, fn, last) {
               _listen(key, fn, cache);
@@ -114,7 +115,7 @@ var Event = (function () {
               // 没有注册就触发了事件 
               // 在trigger函数中将触发事件 离线缓存到了offlineStack
               if (last === 'last') {
-                // 直接触发最后一次注册的事件
+                // 订阅时只会读取最新一次注册事件 携带的参数
                 offlineStack.length && offlineStack.pop()();
               } else {
                 // 遍历触发离线缓存的事件栈
@@ -210,19 +211,33 @@ var Event = (function () {
  *
  */ 
 // 先发布后订阅
+console.log('先发布后订阅：');
 Event.trigger('click', 'careteen');
+Event.trigger('click', 'lanlan');
 Event.listen('click', function (data) {
-  console.log(data); // careteen
+  console.log('_default:' + data);
 });
+// 输出 -> careteen  & lanlan
+
+// 先发布后订阅 传last时，订阅只会读取最新一次发布的数据
+console.log('先发布后订阅 传last时，订阅只会读取最新一次发布的数据：');
+Event.create('nameThree').trigger('tap', 'letme');
+Event.create('nameThree').trigger('tap', 'mlxg');
+
+Event.create('nameThree').listen('tap', function (data) {
+  console.log('data is:' + data);
+}, 'last');
+// 输出 -> data is: mlxg
 
 // 使用命名空间
+console.log('使用命名空间：');
 Event.create('nameOne').listen('click', function (data) {
-  console.log(data); // lanlan
+  console.log('nameOne:' + data); // lanlan
 });
 Event.create('nameOne').trigger('click', 'lanlan');
 
 Event.create('nameTwo').listen('click', function (data) {
-  console.log(data); // high
+  console.log('nameTwo:' + data); // high
 });
 Event.create('nameTwo').trigger('click', 'high');
 

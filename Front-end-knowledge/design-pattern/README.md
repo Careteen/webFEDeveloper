@@ -10,6 +10,7 @@
 - [单例模式](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/design-pattern/20180926_singleton.md)
 - [策略模式](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/design-pattern/20180926_strategy.md)
 - [代理模式](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/design-pattern/20180926_proxy.md)
+- [发布-订阅模式](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/design-pattern/20180928_publish-subscribe.md)
 
 ### 目录
 
