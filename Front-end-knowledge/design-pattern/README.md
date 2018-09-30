@@ -14,6 +14,7 @@
 - [命令模式](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/design-pattern/20180929_command.md)
 - [组合模式](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/design-pattern/20180929_composite.md)
 - [模板方法模式](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/design-pattern/20180930_template.md)
+- [享元模式](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/design-pattern/20180930_flyweight.md)
 
 ### 目录
 
