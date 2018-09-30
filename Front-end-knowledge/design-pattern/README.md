@@ -2,7 +2,7 @@
 
 ### 前言
 
-提高代码可读性、复用性、可扩展性。
+目的是提高代码可读性、复用性、可扩展性。
 
 ### 传送门
 
@@ -11,6 +11,9 @@
 - [策略模式](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/design-pattern/20180926_strategy.md)
 - [代理模式](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/design-pattern/20180926_proxy.md)
 - [发布-订阅模式](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/design-pattern/20180928_publish-subscribe.md)
+- [命令模式](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/design-pattern/20180929_command.md)
+- [组合模式](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/design-pattern/20180929_composite.md)
+- [模板方法模式](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/design-pattern/20180930_template.md)
 
 ### 目录
 
