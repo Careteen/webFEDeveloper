@@ -15,6 +15,7 @@
 - [组合模式](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/design-pattern/20180929_composite.md)
 - [模板方法模式](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/design-pattern/20180930_template.md)
 - [享元模式](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/design-pattern/20180930_flyweight.md)
+- [职责链模式](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/design-pattern/20181001_chain-of-resposibility.md)
 
 ### 目录
 
