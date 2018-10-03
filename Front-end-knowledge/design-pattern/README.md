@@ -17,6 +17,8 @@
 - [享元模式](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/design-pattern/20180930_flyweight.md)
 - [职责链模式](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/design-pattern/20181001_chain-of-resposibility.md)
 - [状态模式](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/design-pattern/20181003_state.md)
+- [适配器模式](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/design-pattern/20181003_adapter.md)
+
 ### 目录
 
 - [单例模式](#单例模式)
