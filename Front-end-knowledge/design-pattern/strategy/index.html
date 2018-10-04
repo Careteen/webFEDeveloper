@@ -5,14 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>策略模式在表单提交校验的实践</title>
+  <style>
+    .form {
+      padding: 200px;
+    }
+  </style>
 </head>
 <body>
-    <form action="http://api.careteen.wang/register" id="registerForm" method="post">
-      请输入用户名：<input type="text" name="userName"/ >
-      请输入密码：<input type="text" name="password"/ >
-      请输入手机号码：<input type="text" name="phoneNumber"/ >
+    <form class="form" action="http://api.careteen.wang/register" id="registerForm" method="post">
+      请输入用户名：<input type="text" id="userName" name="userName"/ >
+      <span id="userNameError"></span><br>
+      请输入密码：<input type="text" id="password" name="password"/ ><br>
+      请输入手机号码：<input type="text" id="phoneNumber" name="phoneNumber"/ ><br>
       <button>提交</button>
-    </form>  
+    </form>
   <script src="./strategies.js"></script>
   <script src="./validator.js"></script>
   <script src="./index.js"></script>

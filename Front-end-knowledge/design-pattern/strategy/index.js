@@ -14,35 +14,57 @@
 // var Validator = require('./validator.js');
 
 var registerForm = document.getElementById('registerForm');
+var userName = document.getElementById('userName');
+var userNameError = document.getElementById('userNameError');
+var password = document.getElementById('password');
+var phoneNumber = document.getElementById('phoneNumber');
 
+var validator;
 // 检验函数
-var validataFnc = function () {
-  var validator = new Validator();
+var validataFnc = function () {  
+  validator = new Validator();
   // 增加校验规则
-  validator.add(registerForm.userName.value, [{
+  validator.add('userName', registerForm.userName.value, [{
     strategy: 'isNonEmpty',
     errorMsg: '用户名不能为空'
   }, {
     strategy: 'minLength:10',
-    errorMsg: '用户名长度不能小于10 位'
+    errorMsg: '用户名长度不能小于10位'
   }]);
-  validator.add(registerForm.password.value, [{
+  validator.add('password', registerForm.password.value, [{
     strategy: 'minLength:6',
-    errorMsg: '密码长度不能小于6 位'
+    errorMsg: '密码长度不能小于6位'
+  }]);
+  validator.add('phoneNumber', registerForm.phoneNumber.value, [{
+    strategy: 'isMobile',
+    errorMsg: '请填写正确的手机号'
   }]);
   // 遍历规则校验
-  var errorMsg = validator.start();
-  return errorMsg;
+  var error = validator.start();
+  return error;
 }
+
+userName.addEventListener('input', function (val) {
+  console.log(registerForm.userName.value);
+  var error = validator && validator.start('userName', registerForm.userName.value);
+  if (error) {
+    console.error(error);
+    return false;
+  } else {
+    userNameError.innerHTML = '';
+  }
+})
 
 // 表单提交
 registerForm.onsubmit = function () {
-  var errorMsg = validataFnc();
-  if (errorMsg) {
-    // 错误处理
-    console.error(errorMsg);
+  var error = validataFnc();
+  if (error) {
+    console.error(error);
+    if (error.key === 'userName') {
+      userNameError.innerHTML = error.errorMsg;
+    }    
     return false;
-  }  
+  }
   // 提交表单正常逻辑👇
   // ...
   console.log('success');
