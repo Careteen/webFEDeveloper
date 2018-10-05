@@ -4,10 +4,10 @@
 
 // var Strategies = require('./strategies.js');
 
-var Validator = function () {
-  // 存储单个实例所有校验规则
-  this.cache = [];
+var Validator = function () {  
+  this.cache = []; // 存储单个实例所有校验规则
 };
+
 /**
  * @desc 增加校验规则
  * @param {String} key 
@@ -19,21 +19,15 @@ Validator.prototype.add = function (key, value, rules) {
   var self = this;
   for (var i = 0, rule; rule = rules[ i++ ];) {
     (function (rule){
-      // 将校验步骤用空函数包装起来，并且存储在cache中
       var single = {
         key: key,
-        fn: function (val) {
-          // 可传值为了实现校验单个
-          value = val || value;
-          // 将strategy和参数分开
-          var strategyAry = rule.strategy.split(':');   
-          var errorMsg = rule.errorMsg;
-          // 用户指定的strategy
-          var strategy = strategyAry.shift();
-          // 将被校验值加入参数列表
-          strategyAry.unshift(value);
-          // 将errorMsg也加入参数列表
-          strategyAry.push(errorMsg);
+        fn: function (val) {     
+          value = val || value; // 可传值为了实现校验单个          
+          var strategyAry = rule.strategy.split(':'); // 将strategy和参数分开
+          var errorMsg = rule.errorMsg;          
+          var strategy = strategyAry.shift(); // 用户指定的strategy          
+          strategyAry.unshift(value); // 将被校验值加入参数列表          
+          strategyAry.push(errorMsg); // 将errorMsg也加入参数列表
           // 容错处理
           if (!Strategies[strategy]) {
             throw new Error('请在strategies.js中添加策略：' + strategy);
@@ -44,6 +38,7 @@ Validator.prototype.add = function (key, value, rules) {
           return Strategies[strategy].apply(null, strategyAry);
         }
       };
+      // 将校验步骤用空函数包装起来，并且存储在cache中
       self.cache.push(single);
     })(rule)
   }
@@ -82,7 +77,7 @@ Validator.prototype.start = function (key, value) {
       }
     }    
   }
-  return false
+  return false;
 };
 
 // module.exports = Validator;

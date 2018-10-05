@@ -12,15 +12,18 @@
 
 // 校验处理器
 // var Validator = require('./validator.js');
+// require('./function-aop.js');
 
 var registerForm = document.getElementById('registerForm');
 var userName = document.getElementById('userName');
 var userNameError = document.getElementById('userNameError');
 var password = document.getElementById('password');
+var passwordError = document.getElementById('passwordError');
 var phoneNumber = document.getElementById('phoneNumber');
+var phoneNumberError = document.getElementById('phoneNumberError');
 
 var validator;
-// 检验函数
+// ----------------检验函数添加校验规则-------------------------
 var validataFnc = function () {  
   validator = new Validator();
   // 增加校验规则
@@ -28,8 +31,8 @@ var validataFnc = function () {
     strategy: 'isNonEmpty',
     errorMsg: '用户名不能为空'
   }, {
-    strategy: 'minLength:10',
-    errorMsg: '用户名长度不能小于10位'
+    strategy: 'minLength:6',
+    errorMsg: '用户名长度不能小于6位'
   }]);
   validator.add('password', registerForm.password.value, [{
     strategy: 'minLength:6',
@@ -43,9 +46,8 @@ var validataFnc = function () {
   var error = validator.start();
   return error;
 }
-
+// ----------------表单实时输入-------------------------
 userName.addEventListener('input', function (val) {
-  console.log(registerForm.userName.value);
   var error = validator && validator.start('userName', registerForm.userName.value);
   if (error) {
     console.error(error);
@@ -54,18 +56,55 @@ userName.addEventListener('input', function (val) {
     userNameError.innerHTML = '';
   }
 })
+password.addEventListener('input', function (val) {
+  var error = validator && validator.start('password', registerForm.password.value);
+  if (error) {
+    console.error(error);
+    return false;
+  } else {
+    passwordError.innerHTML = '';
+  }
+})
+phoneNumber.addEventListener('input', function (val) {
+  var error = validator && validator.start('phoneNumber', registerForm.phoneNumber.value);
+  if (error) {
+    console.error(error);
+    return false;
+  } else {
+    phoneNumberError.innerHTML = '';
+  }
+})
 
-// 表单提交
-registerForm.onsubmit = function () {
+// ----------------检验函数执行-------------------------
+var _validate = function () {
   var error = validataFnc();
   if (error) {
     console.error(error);
-    if (error.key === 'userName') {
+    if (error.key === 'userName') { // 定位到具体项
       userNameError.innerHTML = error.errorMsg;
-    }    
-    return false;
+    }
+    if (error.key === 'password') { 
+      passwordError.innerHTML = error.errorMsg;
+    }
+    if (error.key === 'phoneNumber') { 
+      phoneNumberError.innerHTML = error.errorMsg;
+    }        
+    return false; // 终止后续逻辑
   }
+  // ...
+}
+
+// ----------------真实表单提交-------------------------
+var _onSumbit = function () {
   // 提交表单正常逻辑👇
   // ...
-  console.log('success');
+  console.warn('start submit form ...');
+}
+
+// ----------------拆分粒度，提交之前先校验-------------------------
+registerForm.onsubmit = function () {
+  _onSumbit.before(_validate)();
+  if (true) {
+    return false;
+  }
 }

@@ -8,17 +8,27 @@
   <style>
     .form {
       padding: 200px;
+      font-size: 20px;
+    }
+    input {
+      font-size: 20px;
+    }
+    span {
+      color: red;
     }
   </style>
 </head>
 <body>
-    <form class="form" action="http://api.careteen.wang/register" id="registerForm" method="post">
-      请输入用户名：<input type="text" id="userName" name="userName"/ >
-      <span id="userNameError"></span><br>
-      请输入密码：<input type="text" id="password" name="password"/ ><br>
-      请输入手机号码：<input type="text" id="phoneNumber" name="phoneNumber"/ ><br>
-      <button>提交</button>
-    </form>
+  <form class="form" action="http://api.careteen.wang/register" id="registerForm" method="post">
+    请输入用户名：<input type="text" id="userName" name="userName" placeholder="请输入用户名"/ >
+    <span id="userNameError"></span><br>
+    请输入密码：<input type="text" id="password" name="password"/ placeholder="请输入密码">
+    <span id="passwordError"></span><br>
+    请输入手机号码：<input type="text" id="phoneNumber" name="phoneNumber"/ placeholder="请输入手机号">
+    <span id="phoneNumberError"></span><br>
+    <button>提交</button>
+  </form>
+  <script src="./function-aop.js"></script>
   <script src="./strategies.js"></script>
   <script src="./validator.js"></script>
   <script src="./index.js"></script>
