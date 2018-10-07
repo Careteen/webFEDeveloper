@@ -108,7 +108,7 @@ var Event = (function () {
                 each(offlineStack, function () {                  
                   this(); // 下面this指向offlineStack中的每一项
                 })
-              }              
+              }         
               offlineStack = null; // 置为null 表示已经注册过了
             },
 
@@ -200,6 +200,15 @@ var Event = (function () {
  * @desc 测试用例 
  *
  */ 
+// 先订阅后发布：
+console.log('先订阅后发布：');
+EventBus.on('click', function (data) {
+  console.log('_default:' + data);
+});
+EventBus.emit('click', 'careteen');
+EventBus.emit('click', 'lanlan');
+// 输出 -> careteen  & lanlan
+
 // 先发布后订阅
 console.log('先发布后订阅：');
 Event.emit('click', 'careteen');
@@ -208,16 +217,6 @@ Event.on('click', function (data) {
   console.log('_default:' + data);
 });
 // 输出 -> careteen  & lanlan
-
-// 先发布后订阅 传last时，订阅只会读取最新一次发布的数据
-console.log('先发布后订阅 传last时，订阅只会读取最新一次发布的数据：');
-Event.create('nameThree').emit('tap', 'letme');
-Event.create('nameThree').emit('tap', 'mlxg');
-
-Event.create('nameThree').on('tap', function (data) {
-  console.log('data is:' + data);
-}, 'last');
-// 输出 -> data is: mlxg
 
 // 使用命名空间
 console.log('使用命名空间：');
@@ -231,4 +230,13 @@ Event.create('nameTwo').on('click', function (data) {
 });
 Event.create('nameTwo').emit('click', 'high');
 
+// 先发布后订阅 传last时，订阅只会读取最新一次发布的数据
+console.log('先发布后订阅 传last时，订阅只会读取最新一次发布的数据：');
+Event.create('nameThree').emit('tap', 'letme');
+Event.create('nameThree').emit('tap', 'mlxg');
+
+Event.create('nameThree').on('tap', function (data) {
+  console.log('data is:' + data);
+}, 'last');
+// 输出 -> data is: mlxg
 

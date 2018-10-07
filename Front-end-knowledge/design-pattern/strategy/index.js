@@ -22,6 +22,8 @@ var passwordError = document.getElementById('passwordError');
 var phoneNumber = document.getElementById('phoneNumber');
 var phoneNumberError = document.getElementById('phoneNumberError');
 
+var isSubmiting = document.getElementById('isSubmiting');
+
 var validator;
 // ----------------检验函数添加校验规则-------------------------
 var validataFnc = function () {  
@@ -88,7 +90,8 @@ var _validate = function () {
     }
     if (error.key === 'phoneNumber') { 
       phoneNumberError.innerHTML = error.errorMsg;
-    }        
+    }     
+    isSubmiting.style.display = 'none';   
     return false; // 终止后续逻辑
   }
   // ...
@@ -98,12 +101,14 @@ var _validate = function () {
 var _onSumbit = function () {
   // 提交表单正常逻辑👇
   // ...
+  isSubmiting.style.display = 'block';
   console.warn('start submit form ...');
 }
 
 // ----------------拆分粒度，提交之前先校验-------------------------
 registerForm.onsubmit = function () {
   _onSumbit.before(_validate)();
+  // debugger
   if (true) {
     return false;
   }

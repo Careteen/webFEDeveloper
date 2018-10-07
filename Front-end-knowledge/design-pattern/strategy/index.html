@@ -16,6 +16,19 @@
     span {
       color: red;
     }
+    .isSubmiting {
+      display: none;
+    }
+    button {
+      margin-top: 10px;
+      border: 1px solid #ddd;
+      border-radius: 50px;
+      width: 100px;
+      height: 40px;
+      font-size: 20px;
+      line-height: 40px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -26,6 +39,7 @@
     <span id="passwordError"></span><br>
     请输入手机号码：<input type="text" id="phoneNumber" name="phoneNumber"/ placeholder="请输入手机号">
     <span id="phoneNumberError"></span><br>
+    <p id="isSubmiting" class="isSubmiting">正在提交表单</p>
     <button>提交</button>
   </form>
   <script src="./function-aop.js"></script>
