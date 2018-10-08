@@ -32,4 +32,8 @@
 - 学完溜溜球
 - BAT
 
+### Map
+
+![map](./assets/map.jpeg)
+
 ### 总结
