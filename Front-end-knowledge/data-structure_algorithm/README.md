@@ -8,6 +8,7 @@
 
 - [为什么要学习数据结构和算法](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/data-structure_algorithm/20181008_why-to-study.md)
 - [如何去学习数据结构和算法](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/data-structure_algorithm/20181008_how-to-study.md)
+- [复杂度分析](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/data-structure_algorithm/20181009_complexity-analysis.md)
 
 - TODO...
 
