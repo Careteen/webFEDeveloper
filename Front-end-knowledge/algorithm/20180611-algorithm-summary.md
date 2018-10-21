@@ -285,4 +285,4 @@ class LinkList {
 
 ### 系统自带的排序
 
-- [v8实现](https://github.com/v8/v8/blob/ad82a40509c5b5b4680d4299c8f08d6c6d31af3c/src/js/array.js##L760:7)是小于是个数时使用插入排序，否则使用快排。
+- [v8实现](https://github.com/v8/v8/blob/ad82a40509c5b5b4680d4299c8f08d6c6d31af3c/src/js/array.js##L760:7)是小于十个数时使用插入排序，否则使用快排。
