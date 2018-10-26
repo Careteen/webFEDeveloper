@@ -46,6 +46,8 @@ function fibonacciNew(n, num1 = 1, num2 = 1) {
 
 ### 引用
 
+- [JS的递归与TCO尾调用优化 - 强烈推荐](https://segmentfault.com/a/1190000004018047)
+
 - [尾调用优化 -ruanES6](http://es6.ruanyifeng.com/#docs/function#%E5%B0%BE%E8%B0%83%E7%94%A8%E4%BC%98%E5%8C%96)
 
 - [朋友你听说过尾递归吗](http://imweb.io/topic/584d33049be501ba17b10aaf)
