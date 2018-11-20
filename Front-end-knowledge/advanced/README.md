@@ -13,3 +13,4 @@
 - [正则表达式奇技淫巧](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/advanced/20180627-RegExp.md)
 - [JS奇技淫巧](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/advanced/20180724-js_skill.md)
 - [模板引擎原理及实现方式](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/advanced/20180801-template_engine.md)
+- [将一个数组拍平到指定深度](https://github.com/careteenL/webFEDeveloper/blob/master/Front-end-knowledge/advanced/20181120-flatten.js)
